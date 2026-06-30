@@ -30,12 +30,12 @@ diff_drive_controller:
     cmd_vel_timeout: 0.5 # selaras dengan CMD_TIMEOUT_MS di Arduino (500ms)
     enable_odom_tf: false   # <--- TAMBAHKAN INI AGAR TIDAK TABRAKAN DENGAN EKF!
 
-    linear.x.max_velocity: 0.12
-    linear.x.min_velocity: -0.12
+    linear.x.max_velocity: 0.15
+    linear.x.min_velocity: -0.15
     linear.x.has_acceleration_limits: true
-    linear.x.max_acceleration: 0.5
-
-    angular.z.max_velocity: 1.5
-    angular.z.min_velocity: -1.5
+    linear.x.max_acceleration: 0.25
+    
+    angular.z.max_velocity: 0.75
+    angular.z.min_velocity: -0.75
     angular.z.has_acceleration_limits: true
-    angular.z.max_acceleration: 1.5
+    angular.z.max_acceleration: 0.75
