@@ -1,0 +1,18 @@
+laser_filter_node:
+  ros__parameters:
+    filter1:
+      name: speckle_filter
+      type: laser_filters/LaserScanSpeckleFilter
+      params:
+        filter_type: 0
+        max_range_difference: 0.3
+        filter_window: 4
+
+    filter2:
+      name: range_filter
+      type: laser_filters/LaserScanRangeFilter
+      params:
+        lower_threshold: 0.12
+        upper_threshold: 8.0
+        lower_replacement_value: .inf
+        upper_replacement_value: .inf

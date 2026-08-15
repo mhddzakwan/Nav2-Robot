@@ -1,0 +1,15 @@
+ruang1:
+  frame_id: map
+  x: 2.089
+  y: 0.5855
+  yaw: -1.3853
+ruang2:
+  frame_id: map
+  x: 1.2907
+  y: 1.1608
+  yaw: -1.8545
+ruang3:
+  frame_id: map
+  x: 0.317
+  y: 0.6318
+  yaw: -1.8957
