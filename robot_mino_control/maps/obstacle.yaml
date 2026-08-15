@@ -1,7 +1,0 @@
-image: obstacle.pgm
-mode: trinary
-resolution: 0.050
-origin: [-1.426, -5.117, 0]
-negate: 0
-occupied_thresh: 0.65
-free_thresh: 0.196
