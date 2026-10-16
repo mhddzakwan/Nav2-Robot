@@ -46,11 +46,10 @@ Autonomous navigation stack for **Robot Mino**, a differential-drive robot built
 ### Hardware & Communication
 | Component | Notes |
 |---|---|
-| **Microcontroller** (Arduino/ESP32) | 50 Hz motor PID loop, encoder and IMU readout, serial link at 115200 baud |
-| **DC motors + encoders** | 1012 counts/rev |
-| **IMU** (accelerometer + gyroscope) | Published as `/imu/data_raw` |
-| **2D LiDAR** | Read over serial by `lidar_node`, published as `/scan` |
-| **Single-board computer** | Runs the entire ROS 2 stack |
+| **Arduino Nano Sense 33 BLE Rev 1** (Arduino/ESP32) | Control PID and motor driver. Builtin with IMU LSM9DS1  |
+| **DC motors 25JGA370 + encoders** | 1012 counts/rev |
+| **Yd Lidar X4** | Read over serial by `lidar_node`, published as `/scan` |
+| **Raspberry Pi 5** | Runs the entire ROS 2 stack |
 
 ### Python Libraries
 `pyserial` · `numpy` · `scipy` · `matplotlib` · `Pillow` · `PyYAML`
@@ -162,50 +161,6 @@ Nav2-Robot-main/
 
 ---
 
-## 🚀 Quick Start
-
-### Prerequisites
-- ROS 2 (Jazzy) with: `navigation2`, `nav2_bringup`, `slam_toolbox`, `robot_localization`, `laser_filters`, `ros2_control`, `ros2_controllers`, `topic_based_ros2_control`, `xacro`
-- `pyserial`, `numpy`, `scipy`, `matplotlib`, `pillow`
-- The `robot_mino_interfaces` package
-
-### Build
-```bash
-mkdir -p ~/ros2_ws/src && cd ~/ros2_ws/src
-git clone <REPO_URL> .
-cd ~/ros2_ws
-rosdep install --from-paths src --ignore-src -y
-colcon build --symlink-install
-source install/setup.bash
-```
-
-### 1. Mapping (SLAM)
-```bash
-ros2 launch robot_mino_control bringup.launch.py slam:=true \
-    serial_port:=/dev/ttyACM0 lidar_port:=/dev/ttyUSB0
-```
-Drive the robot manually to build the map, then save it:
-```bash
-ros2 run nav2_map_server map_saver_cli -f ~/ros2_ws/src/robot_mino_control/maps/map_mino
-```
-
-### 2. Navigation
-```bash
-# Terminal 1: hardware without SLAM
-ros2 launch robot_mino_control bringup.launch.py slam:=false
-
-# Terminal 2: Nav2 stack
-ros2 launch robot_mino_control navigation.launch.py map:=<path_to_map.yaml>
-```
-
-### 3. Save locations & run waypoints
-```bash
-ros2 run robot_mino_control location_saver_node
-ros2 run robot_mino_control waypoint_executor_node
-```
-
----
-
 ## ⚙️ Key Parameters
 
 | Parameter | Value | File |
@@ -223,22 +178,7 @@ ros2 run robot_mino_control waypoint_executor_node
 
 ---
 
-## 🗺️ Roadmap
-
-- [x] Hardware bringup with ros2_control
-- [x] EKF sensor fusion (odometry + IMU)
-- [x] SLAM and AMCL localization
-- [x] Nav2 navigation with Graceful Controller
-- [x] Named location storage and waypoint execution
-- [ ] DWB vs Graceful Controller benchmark (metrics recorder)
-- [ ] LLM orchestrator + TTS integration for voice commands
-
----
-
 ## 📄 License
 
 Apache-2.0
 
-## 👤 Maintainer
-
-**Dzakwan** — Universitas Sumatera Utara · UKM Robotik Sikonek
