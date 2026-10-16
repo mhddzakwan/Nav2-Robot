@@ -7,7 +7,9 @@ Autonomous navigation stack for **Robot Mino**, a differential-drive robot built
 ![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)
 ![License](https://img.shields.io/badge/License-Apache--2.0-green)
 
----
+<p align="center">
+  <img src="images/robot.jpeg" alt="Deskripsi Gambar" width="300">
+</p>
 
 ## 🧰 Tech Stack
 
@@ -46,8 +48,8 @@ Autonomous navigation stack for **Robot Mino**, a differential-drive robot built
 ### Hardware & Communication
 <img src="images/component.png" alt="Deskripsi Gambar" width="600">
 
-| Component | Notes | Link |
-|---|---|---|
+| Component | Notes |
+|---|---|
 | **Arduino Nano Sense 33 BLE Rev 1** (Arduino/ESP32) | Control PID and motor driver. Builtin with IMU LSM9DS1  |
 | **TB6612FNG ** | Motor Driver |
 | **DC motors 25JGA370 + encoders** | 1012 counts/rev |
