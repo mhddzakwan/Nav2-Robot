@@ -44,9 +44,12 @@ Autonomous navigation stack for **Robot Mino**, a differential-drive robot built
 | **Lifecycle Manager** | `nav2_lifecycle_manager` |
 
 ### Hardware & Communication
-| Component | Notes |
-|---|---|
+<img src="images/component.png" alt="Deskripsi Gambar" width="600">
+
+| Component | Notes | Link |
+|---|---|---|
 | **Arduino Nano Sense 33 BLE Rev 1** (Arduino/ESP32) | Control PID and motor driver. Builtin with IMU LSM9DS1  |
+| **TB6612FNG ** | Motor Driver |
 | **DC motors 25JGA370 + encoders** | 1012 counts/rev |
 | **Yd Lidar X4** | Read over serial by `lidar_node`, published as `/scan` |
 | **Raspberry Pi 5** | Runs the entire ROS 2 stack |
